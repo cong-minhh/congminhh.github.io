@@ -1,22 +1,70 @@
-import Image from "next/image";
+"use client";
+
 import styles from "./page.module.css";
+import "./theme.css";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { BiCodeAlt } from "react-icons/bi";
+import { BsCalendarEvent } from "react-icons/bs";
+import { MdWork } from "react-icons/md";
 
 export default function Home() {
+  const fadeInUp: Variants = {
+    initial: { y: 20, opacity: 0 },
+    animate: { y: 0, opacity: 1 }
+  };
+
+  const defaultTransition = { duration: 0.5 };
+
   return (
-    <div className={styles.page}>
+    <motion.main
+      className={styles.page}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       {/* Hero Section */}
-      <section className={styles.hero}>
-        <h1>Cong Minh Hoang</h1>
-        <p className={styles.objective}>
+      <motion.section
+        className={styles.hero}
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <motion.h1
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          Nguyen Cong Minh
+        </motion.h1>
+        <motion.p
+          className={styles.objective}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+        >
           Passionate Full-Stack Developer with expertise in modern web and mobile technologies.
           Skilled in building scalable, user-centric applications with a focus on performance
           optimization, real-time functionality, and cross-platform compatibility.
-        </p>
-      </section>
+        </motion.p>
+      </motion.section>
 
       {/* Projects Grid */}
-      <section className={styles.section}>
-        <h2>Featured Projects</h2>
+      <motion.section
+        className={styles.section}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <motion.h2
+          variants={fadeInUp}
+          className={styles.sectionTitle}
+        >
+          <BiCodeAlt className={styles.sectionIcon} />
+          Featured Projects
+        </motion.h2>
         <div className={styles.projectsGrid}>
           {[
             {
@@ -41,7 +89,14 @@ export default function Home() {
               tech: ['React Native', 'Supabase', 'Reanimated']
             }
           ].map((project, i) => (
-            <article key={i} className={styles.projectCard}>
+            <motion.article
+              key={i}
+              className={styles.projectCard}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
               <h3>{project.title}</h3>
               <time>{project.date}</time>
               <p>{project.description}</p>
@@ -50,14 +105,26 @@ export default function Home() {
                   <span key={j} className={styles.techTag}>{tech}</span>
                 ))}
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Skills Matrix */}
-      <section className={styles.section}>
-        <h2>Technical Skills</h2>
+      <motion.section
+        className={styles.section}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <motion.h2
+          variants={fadeInUp}
+          className={styles.sectionTitle}
+        >
+          <MdWork className={styles.sectionIcon} />
+          Technical Skills
+        </motion.h2>
         <div className={styles.skillsGrid}>
           {[
             ['Frontend', 'React.js, Next.js, Material-UI, Framer Motion'],
@@ -65,30 +132,69 @@ export default function Home() {
             ['Database', 'MySQL, MongoDB, PostgreSQL, JPA/Hibernate'],
             ['Mobile', 'React Native, Reanimated, AsyncStorage']
           ].map(([category, skills], i) => (
-            <div key={i} className={styles.skillCategory}>
+            <motion.div
+              key={i}
+              className={styles.skillCategory}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
               <h3>{category}</h3>
               <p>{skills}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Education Timeline */}
-      <section className={styles.section}>
-        <h2>Education & Certifications</h2>
+      <motion.section
+        className={styles.section}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <motion.h2
+          variants={fadeInUp}
+          className={styles.sectionTitle}
+        >
+          <BsCalendarEvent className={styles.sectionIcon} />
+          Education & Certifications
+        </motion.h2>
         <div className={styles.timeline}>
-          <div className={styles.timelineItem}>
+          <motion.div
+            className={styles.timelineItem}
+            variants={fadeInUp}
+          >
             <h3>Eastern International University</h3>
             <p>Software Engineering · GPA 3.61</p>
             <time>2021-2024</time>
-          </div>
-          <div className={styles.timelineItem}>
+          </motion.div>
+          <motion.div
+            className={styles.timelineItem}
+            variants={fadeInUp}
+          >
             <h3>IELTS Certification</h3>
             <p>Overall Band Score 6.0</p>
             <time>2024</time>
-          </div>
+          </motion.div>
         </div>
-      </section>
-    </div>
+      </motion.section>
+
+      {/* Social Links */}
+      <motion.div
+        className={styles.socialLinks}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+      >
+        <a href="https://github.com/cong-minhh" target="_blank" rel="noopener noreferrer">
+          <FaGithub size={24} />
+        </a>
+        <a href="https://www.linkedin.com/in/minh-nguy%E1%BB%85n-c%C3%B4ng-843438255/" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin size={24} />
+        </a>
+      </motion.div>
+    </motion.main>
   );
 }
