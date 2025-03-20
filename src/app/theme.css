@@ -3,39 +3,39 @@
 
 :root {
   /* Everforest Light Theme - Refined */
-  --color-primary: #8cccc4;
-  --color-accent: #93d1a2;
-  --text-primary: #4a5860;
-  --text-secondary: #6b7267;
-  --card-bg: #f8f4e3;
-  --tag-bg: #ebefd4;
-  --tag-text: #4a5860;
-  --background: #fdfaf0;
-  --timeline-line: #b7d090;
-  --shadow-color: rgba(74, 88, 96, 0.08);
+  --color-primary: #7fbbb3;
+  --color-accent: #83c092;
+  --text-primary: #5c6a72;
+  --text-secondary: #7c8377;
+  --card-bg: #f3ead3;
+  --tag-bg: #e6e9c4;
+  --tag-text: #5c6a72;
+  --background: #fdf6e3;
+  --timeline-line: #a7c080;
+  --shadow-color: rgba(92, 106, 114, 0.08);
   --section-spacing: 6rem;
-  --card-border: rgba(147, 209, 162, 0.2);
-  --gradient-primary: linear-gradient(135deg, #8cccc4 0%, #93d1a2 100%);
-  --gradient-card: linear-gradient(180deg, rgba(248, 244, 227, 0.8) 0%, rgba(248, 244, 227, 1) 100%)
+  --card-border: rgba(131, 192, 146, 0.2);
+  --gradient-primary: linear-gradient(135deg, #7fbbb3 0%, #83c092 100%);
+  --gradient-card: linear-gradient(180deg, rgba(243, 234, 211, 0.8) 0%, rgba(243, 234, 211, 1) 100%)
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     /* Everforest Dark Theme - Refined */
-    --color-primary: #b7d090;
-    --color-accent: #93d1a2;
-    --text-primary: #e3d6ba;
-    --text-secondary: #adb9b0;
-    --card-bg: #333f47;
-    --tag-bg: #4d585d;
-    --tag-text: #e3d6ba;
-    --background: #2f383e;
-    --timeline-line: #8cccc4;
+    --color-primary: #a7c080;
+    --color-accent: #83c092;
+    --text-primary: #d3c6aa;
+    --text-secondary: #9da9a0;
+    --card-bg: #2d353b;
+    --tag-bg: #3d484d;
+    --tag-text: #d3c6aa;
+    --background: #2b3339;
+    --timeline-line: #7fbbb3;
     --shadow-color: rgba(0, 0, 0, 0.15);
     --section-spacing: 6rem;
-    --card-border: rgba(147, 209, 162, 0.2);
-    --gradient-primary: linear-gradient(135deg, #b7d090 0%, #93d1a2 100%);
-    --gradient-card: linear-gradient(180deg, rgba(51, 63, 71, 0.8) 0%, rgba(51, 63, 71, 1) 100%)
+    --card-border: rgba(131, 192, 146, 0.2);
+    --gradient-primary: linear-gradient(135deg, #a7c080 0%, #83c092 100%);
+    --gradient-card: linear-gradient(180deg, rgba(45, 53, 59, 0.8) 0%, rgba(45, 53, 59, 1) 100%)
   }
 }
 
