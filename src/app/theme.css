@@ -2,32 +2,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
 
 :root {
-  /* Everforest Light Theme */
-  --color-primary: #7fbbb3;
-  --color-accent: #83c092;
-  --text-primary: #5c6a72;
-  --text-secondary: #7c8377;
-  --card-bg: #f3ead3;
-  --tag-bg: #e6e9c4;
-  --tag-text: #5c6a72;
-  --background: #fdf6e3;
-  --timeline-line: #a7c080;
-  --shadow-color: rgba(92, 106, 114, 0.1);
+  /* Everforest Light Theme - Refined */
+  --color-primary: #8cccc4;
+  --color-accent: #93d1a2;
+  --text-primary: #4a5860;
+  --text-secondary: #6b7267;
+  --card-bg: #f8f4e3;
+  --tag-bg: #ebefd4;
+  --tag-text: #4a5860;
+  --background: #fdfaf0;
+  --timeline-line: #b7d090;
+  --shadow-color: rgba(74, 88, 96, 0.08);
+  --section-spacing: 6rem;
+  --card-border: rgba(147, 209, 162, 0.2);
+  --gradient-primary: linear-gradient(135deg, #8cccc4 0%, #93d1a2 100%);
+  --gradient-card: linear-gradient(180deg, rgba(248, 244, 227, 0.8) 0%, rgba(248, 244, 227, 1) 100%)
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Everforest Dark Theme */
-    --color-primary: #a7c080;
-    --color-accent: #83c092;
-    --text-primary: #d3c6aa;
-    --text-secondary: #9da9a0;
-    --card-bg: #2d353b;
-    --tag-bg: #3d484d;
-    --tag-text: #d3c6aa;
-    --background: #2b3339;
-    --timeline-line: #7fbbb3;
-    --shadow-color: rgba(0, 0, 0, 0.2);
+    /* Everforest Dark Theme - Refined */
+    --color-primary: #b7d090;
+    --color-accent: #93d1a2;
+    --text-primary: #e3d6ba;
+    --text-secondary: #adb9b0;
+    --card-bg: #333f47;
+    --tag-bg: #4d585d;
+    --tag-text: #e3d6ba;
+    --background: #2f383e;
+    --timeline-line: #8cccc4;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --section-spacing: 6rem;
+    --card-border: rgba(147, 209, 162, 0.2);
+    --gradient-primary: linear-gradient(135deg, #b7d090 0%, #93d1a2 100%);
+    --gradient-card: linear-gradient(180deg, rgba(51, 63, 71, 0.8) 0%, rgba(51, 63, 71, 1) 100%)
   }
 }
 
@@ -36,6 +44,48 @@ body {
   font-family: 'Inter', sans-serif;
   background: var(--background);
   color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+/* Card and Section Styles */
+.projectCard,
+.skillCategory,
+.statCard,
+.timelineItem,
+.learningItem {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+/* Text Colors */
+.heroSubtitle,
+.objective,
+.timelineItem p,
+.timelineItem time {
+  color: var(--text-secondary);
+}
+
+/* Icon Colors */
+.techIcon,
+.sectionIcon,
+.statIcon,
+.socialLinks a {
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+/* Tag and Button Styles */
+.techTag {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  transition: all 0.3s ease;
+}
+
+/* Theme Transition */
+:root {
+  transition: all 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -56,6 +106,63 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes scaleIn {
   from { transform: scale(0.95); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Apply animations to elements */
+.projectCard {
+  animation: scaleIn 0.6s ease-out;
+}
+
+.skillIcon {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.skillIcon:hover {
+  animation: float 3s ease-in-out infinite;
+}
+
+.heroSection {
+  animation: slideUp 0.8s ease-out;
+}
+
+.statCard {
+  animation: fadeIn 0.7s ease-out;
+}
+
+.statCard:hover {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.timelineItem {
+  animation: slideUp 0.6s ease-out;
+  transition: transform 0.3s ease;
+}
+
+.timelineItem:hover {
+  transform: translateX(8px);
+}
+
+.techTag {
+  background: linear-gradient(90deg, var(--tag-bg), var(--color-accent), var(--tag-bg));
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
 }
 
 /* Smooth Scrolling */

@@ -28,18 +28,72 @@
 }
 
 .hero {
+  position: relative;
   text-align: center;
-  padding: 4rem 0;
+  padding: 8rem 0 4rem;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.heroPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(var(--color-primary) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.1;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+.heroTechStack {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.techIcon {
+  font-size: 2rem;
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.techIcon:hover {
+  color: var(--color-accent);
+  transform: translateY(-5px);
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: fadeIn 1s ease-out;
+  letter-spacing: -0.02em;
 }
 
 .objective {
@@ -51,7 +105,14 @@
 }
 
 .section {
-  margin: 4rem 0;
+  margin: 1.5rem 0;
+  position: relative;
+  padding: 1.75rem;
+  background: var(--gradient-card);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
 }
 
 .section h2 {
@@ -80,10 +141,13 @@
 
 .projectCard {
   background: var(--card-bg);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px var(--shadow-color);
-  transition: transform 0.2s ease;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  margin-bottom: 0.75rem;
 }
 
 .projectCard h3 {
@@ -249,12 +313,85 @@
 }
 
 .skillCategory {
+  background: var(--gradient-card);
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  margin-bottom: 0.75rem;
+}
+
+.skillIcons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.skillIcon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.skillIcon svg {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+}
+
+.githubStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.statCard {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--color-accent);
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.statIcon {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.learningPath {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.learningItem {
   background: var(--card-bg);
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px var(--shadow-color);
+  border-radius: 12px;
+  text-align: center;
   border: 1px solid var(--color-accent);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.learningItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--shadow-color);
+  background: var(--color-primary);
+  color: var(--background);
 }
 
 .skillCategory:hover {
@@ -280,10 +417,13 @@
 
 .timelineItem {
   background: var(--card-bg);
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  margin-bottom: 0.75rem;
 }
 
 .timelineItem h3 {
